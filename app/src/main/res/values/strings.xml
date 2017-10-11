@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">First App</string>
+    <string name="my_first_app">Test App 1 - SMS Send</string>
+    <string name="send_sms">Send SMS</string>
+    <string name="input_data">Input Data</string>
+    <string name="view_data">View Data</string>
+</resources>
