@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
+    android:background="@android:color/white"
     tools:context="com.example.bobby.firstapp.MainActivity">
 
     <TextView
@@ -27,9 +27,9 @@
         android:layout_marginBottom="71dp"
         android:ems="10"
         android:hint="Phone"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/black"
         android:inputType="phone"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_alignBottom="@+id/button"
         android:layout_alignStart="@+id/button" />
 
@@ -55,8 +55,8 @@
         android:layout_marginBottom="56dp"
         android:ems="10"
         android:hint="Message"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/black"
         android:inputType="textPersonName"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/black" />
 
 </RelativeLayout>
