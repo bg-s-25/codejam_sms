@@ -7,61 +7,56 @@
     android:background="@drawable/bg1"
     tools:context="com.example.bobby.firstapp.MainActivity">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="@string/view_data"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_marginBottom="9dp"
-        android:layout_above="@+id/button3"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="27dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/input_data"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-
     <TextView
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:gravity="center"
         android:text="@string/my_first_app"
+        android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
-        android:textStyle="italic" />
-
-    <Button
-        android:background="@color/colorPrimary"
-        android:id="@+id/button"
-        android:textColor="@android:color/white"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="@string/send_sms"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText"
-        android:textColor="@android:color/white"
+        android:id="@+id/editTextPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="71dp"
         android:ems="10"
+        android:hint="Phone"
+        android:textColorHint="@android:color/white"
         android:inputType="phone"
-        android:layout_below="@+id/button1"
+        android:textColor="@android:color/white"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignStart="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/send_sms"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="249dp"
+        android:layout_below="@+id/textView1"
+        android:layout_alignStart="@+id/editTextMessage"
+        android:layout_alignEnd="@+id/editTextMessage" />
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextPhone"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp" />
+        android:layout_marginBottom="56dp"
+        android:ems="10"
+        android:hint="Message"
+        android:textColorHint="@android:color/white"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
