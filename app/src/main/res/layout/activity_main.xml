@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/bg3"
     tools:context="com.example.bobby.firstapp.MainActivity">
 
     <TextView
@@ -16,22 +16,23 @@
         android:gravity="center"
         android:text="@string/my_first_app"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="71dp"
+        android:layout_marginBottom="98dp"
         android:ems="10"
         android:hint="Phone"
         android:textColorHint="@android:color/black"
         android:inputType="phone"
         android:textColor="@android:color/black"
         android:layout_alignBottom="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignStart="@+id/editTextMessage" />
 
     <Button
         android:id="@+id/button"
@@ -41,10 +42,9 @@
         android:text="@string/send_sms"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_marginTop="249dp"
-        android:layout_below="@+id/textView1"
-        android:layout_alignStart="@+id/editTextMessage"
-        android:layout_alignEnd="@+id/editTextMessage" />
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/editTextPhone"
+        android:layout_alignEnd="@+id/editTextPhone" />
 
     <EditText
         android:id="@+id/editTextMessage"
@@ -58,5 +58,17 @@
         android:textColorHint="@android:color/black"
         android:inputType="textPersonName"
         android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/buttonSetDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="9dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/set_date_time"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
