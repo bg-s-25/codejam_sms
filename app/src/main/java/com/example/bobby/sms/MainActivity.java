@@ -1,5 +1,6 @@
-package com.example.bobby.firstapp;
+package com.example.bobby.sms;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         etPhone = (EditText) findViewById(R.id.editTextPhone);
         etMessage = (EditText) findViewById(R.id.editTextMessage);
