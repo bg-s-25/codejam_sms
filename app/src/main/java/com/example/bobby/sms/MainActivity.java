@@ -84,9 +84,8 @@ public class MainActivity extends AppCompatActivity {
         if (phoneNumber == "") {return;}
         try {
             SmsManager sms = SmsManager.getDefault();
-                sms.sendTextMessage(phoneNumber, null, message, null, null);
-            if(year_x == cal.get(Calendar.YEAR) && month_x == cal.get(Calendar.MONTH) && date_x == cal.get(Calendar.DAY_OF_MONTH) && hour_x ==cal.get(Calendar.HOUR_OF_DAY) && minute_x ==cal.get(Calendar.MINUTE)) {
-                Toast.makeText(getApplicationContext(), "SMS Sent!", Toast.LENGTH_LONG).show();
+            sms.sendTextMessage(phoneNumber, null, message, null, null);
+            Toast.makeText(getApplicationContext(), "SMS Sent!", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "SMS failed to send", Toast.LENGTH_LONG).show();
             e.printStackTrace();
