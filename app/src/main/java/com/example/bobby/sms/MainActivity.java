@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
     Button bt2;
     static final int DATE_DIALOG_ID = 1;
     static final int TIME_DIALOG_ID = 2;
-    final Calendar cal = Calendar.getInstance();
-    int year_x, month_x, date_x, hour_x, minute_x; // variables for year, month, day of month, hour, and minute set by user
+    Calendar cal = Calendar.getInstance();
+    int year_x, month_x, date_x, hour_x, minute_x; // year, month, day of month, hour of day, and minute set by user
     String dateStr, timeStr;
     String[] saveData;
+    Thread t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Set Date button clicked", Toast.LENGTH_SHORT).show();
 
-                showDialog(DATE_DIALOG_ID);
-
                 showDialog(TIME_DIALOG_ID);
+
+                showDialog(DATE_DIALOG_ID);
 
                 String phoneNum = etPhone.getText().toString();
                 String message = etMessage.getText().toString();
@@ -73,9 +74,44 @@ public class MainActivity extends AppCompatActivity {
 
                 saveData = new String[]{phoneNum, message, dateStr, timeStr};
 
-                System.out.println(saveData);
+                cal = Calendar.getInstance();
+                System.out.println(year_x);
+                System.out.println(month_x);
+                System.out.println(date_x);
+                System.out.println(hour_x);
+                System.out.println(minute_x);
+                System.out.println(cal.get(Calendar.YEAR));
+                System.out.println(cal.get(Calendar.MONTH) + 1);
+                System.out.println(cal.get(Calendar.DAY_OF_MONTH));
+                System.out.println(cal.get(Calendar.HOUR_OF_DAY));
+                System.out.println(cal.get(Calendar.MINUTE));
+
+                // Start thread to check for auto send SMS
+
+                t.start();
             }
         });
+
+        t = new Thread() {
+            @Override
+            public void run() {
+                while (!isInterrupted()) {
+                    try {
+                        Thread.sleep(5000);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                cal = Calendar.getInstance();
+                                timerTask();
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
 
     }
 
@@ -99,11 +135,11 @@ public class MainActivity extends AppCompatActivity {
             month_x = monthOfYear + 1;
             date_x = dayOfMonth;
             dateStr = month_x + "/" + date_x + "/" + year_x;
-            System.out.println(dateStr);
-
+            // System.out.println(dateStr);
         }
     };
-    // Dialog codes for date and time
+
+    // Dialogs for date and time
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == 1) {
@@ -114,15 +150,20 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
-
-
     public TimePickerDialog.OnTimeSetListener tpickerListener = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             hour_x = hourOfDay;
             minute_x = minute;
             timeStr = hour_x + ":" + minute_x;
-            System.out.println(timeStr);
+            // System.out.println(timeStr);
         }
     };
+
+    // Method repeated by timer on regular interval
+    public void timerTask() {
+        if (year_x == cal.get(Calendar.YEAR) && month_x == (cal.get(Calendar.MONTH) + 1) && date_x == cal.get(Calendar.DAY_OF_MONTH) && hour_x == cal.get(Calendar.HOUR_OF_DAY) && minute_x == cal.get(Calendar.MINUTE)) {
+            sendSMS(saveData[0], saveData[1]);
+        }
+    }
 }
