@@ -1,6 +1,6 @@
 # Computer Science Club Code Jam 2017 Project
 
-Authors: (Name) and (Name) <br />
+Authors: Bobby Georgiou and Justin John <br />
 Stevens Institute of Technology (Hoboken, NJ USA)
 
 ## Description
