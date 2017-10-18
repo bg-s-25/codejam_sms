@@ -1,11 +1,12 @@
 # Computer Science Club Code Jam 2017 Project
 
-[Unfinished]
-Authors: (Name) and (Name)
+Authors: (Name) and (Name) <br />
+Stevens Institute of Technology (Hoboken, NJ USA)
 
 ## Description
 
-Android app that sends automatic birthday messages to contacts via SMS. Made with Android Studio.
+Status: Unfinished <br />
+Final version of the Android app will be be able to schedule SMS messages and will automatically send the message at a specified date and time. Made with Android Studio using Android Authority and Android.com documentation.
 
 ## Permissions
 
